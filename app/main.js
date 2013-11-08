@@ -1,5 +1,6 @@
 ﻿requirejs.config({
     paths: {
+        'lib': '../lib',
         'text': '../lib/require/text',
         'durandal':'../lib/durandal/js',
         'plugins' : '../lib/durandal/js/plugins',

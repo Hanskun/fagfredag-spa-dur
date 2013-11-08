@@ -1,0 +1,52 @@
+﻿<div class="container" xmlns="http://www.w3.org/1999/html">
+    <br />
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h1 class="panel-title">Været for <span data-bind="text:weatherInfo().place"></span>, <span data-bind="text:weatherInfo().country"></span></h1>
+        </div>
+        <div class="panel-body">
+            <div class="row" data-bind="with: forecasts()[0]">
+                <div class="col-sm-2 col-sm-offset-1 temperature">
+                    <span><span data-bind="text: periods[0].temperature" />°</span>
+                </div>
+                <div class="col-sm-4 weather">
+                    <img data-bind="attr: { src: periods[0].symbolUrl}">
+                </div>
+                <div class="col-sm-5">
+                    <div class="info">
+                        <p>Nedbør</p>
+                        <p><span data-bind="text: periods[0].precipitationMin" /> – <span data-bind="text: periods[0].precipitationMax" /> mm</p>
+                    </div>
+                    <div class="info">
+                        <p>Vind:</p>
+                        <p><span data-bind="text: periods[0].windType" />, <span data-bind="text: periods[0].windSpeed" /> m/s fra <span data-bind="text: periods[0].windDirection.toLowerCase()" /></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h2 class="panel-title">I morgen, lørdag 26/10/2013</h2>
+        </div>
+        <table class="table">
+            <thead>
+                <th>Tid</th>
+                <th>Varsel</th>
+                <th>Temperatur</th>
+                <th>Nedbør</th>
+                <th>Vind</th>
+            </thead>
+            <tbody data-bind="foreach: forecasts()[1].periods">
+            <tr>
+                <td>kl <span data-bind="text: moment(from).format('HH')" />-<span data-bind="text: moment(to).format('HH')" /></td>
+                <td><img data-bind="attr: { src: symbolUrl}"></td>
+                <td><span data-bind="text: temperature" />°</td>
+                <td><span data-bind="text: precipitationMin" /> – <span data-bind="text: precipitationMax" /> mm</td>
+                <td><span data-bind="text: windType" />, <span data-bind="text: windSpeed" /> m/s fra <span data-bind="text: windDirection.toLowerCase()" /></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
